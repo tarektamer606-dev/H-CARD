@@ -470,6 +470,28 @@
     .call-btn:hover { background: var(--danger-dark); }
     .call-btn:active { transform: scale(.97); }
 
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 9px;
+      padding: 9px 14px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      min-height: 40px;
+    }
+    .link-btn:hover { background: var(--primary-dark); }
+    .not-found-actions { margin-top: 14px; }
+
     /* ---------- QR verification panel ---------- */
     .qr-panel { display: flex; flex-direction: column; }
     .qr-content {
@@ -580,7 +602,7 @@
     DEMO / TEST CARD <span>— All data shown is for demonstration purposes only</span>
   </div>
 
-  <article class="card">
+  <article class="card" id="card-main">
 
     <!-- Card header -->
     <header class="card-header">
@@ -591,7 +613,7 @@
           </span>
           H Card
         </div>
-        <span class="status-pill"><span class="dot"></span> Active</span>
+        <span class="status-pill"><span class="dot"></span><span id="header-status">Active</span></span>
       </div>
       <div class="header-identity">
         <!-- Profile photo placeholder (no personal photo) -->
@@ -601,10 +623,10 @@
         </div>
         <div class="header-name-block">
           <span class="header-eyebrow">Digital Identity Card</span>
-          <h1 class="full-name">Tamer Tarek Hamad Mokhtar</h1>
+          <h1 class="full-name" id="full-name">Tamer Tarek Hamad Mokhtar</h1>
           <span class="card-id-badge">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="9" x2="17" y2="9"/><line x1="7" y1="13" x2="13" y2="13"/></svg>
-            Card ID: <strong>TAMER001</strong>
+            Card ID: <strong id="header-card-id">TAMER001</strong>
           </span>
         </div>
       </div>
@@ -627,35 +649,35 @@
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 Full Name
               </span>
-              <span class="info-value">Tamer Tarek Hamad Mokhtar</span>
+              <span class="info-value" id="pi-name">Tamer Tarek Hamad Mokhtar</span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 Date of Birth
               </span>
-              <span class="info-value">15 / 06 / 2012</span>
+              <span class="info-value" id="pi-dob">15 / 06 / 2012</span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
                 Gender
               </span>
-              <span class="info-value">Male</span>
+              <span class="info-value" id="pi-gender">Male</span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 Nationality
               </span>
-              <span class="info-value">Egyptian</span>
+              <span class="info-value" id="pi-nationality">Egyptian</span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 Location
               </span>
-              <span class="info-value">Tanta, Gharbia, Egypt</span>
+              <span class="info-value" id="pi-location">Tanta, Gharbia, Egypt</span>
             </li>
           </ul>
         </section>
@@ -674,21 +696,21 @@
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16"/></svg>
                 Blood Type
               </span>
-              <span class="info-value"><span class="blood-badge">O+ <span class="demo-tag">DEMO</span></span></span>
+              <span class="info-value"><span class="blood-badge"><span id="blood-value">O+</span><span class="demo-tag">DEMO</span></span></span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 Allergies
               </span>
-              <span class="info-value"><span class="allergy-badge">Penicillin <span class="demo-tag">DEMO</span></span></span>
+              <span class="info-value"><span class="allergy-badge"><span id="allergy-value">Penicillin</span><span class="demo-tag">DEMO</span></span></span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 Medical Notes
               </span>
-              <span class="info-value note">No critical medical information <span class="demo-tag-inline">DEMO</span></span>
+              <span class="info-value note"><span id="notes-value">No critical medical information</span><span class="demo-tag-inline">DEMO</span></span>
             </li>
           </ul>
 
@@ -704,16 +726,16 @@
           <div class="contact-grid">
             <div class="contact-card">
               <span class="contact-label">Emergency Contact</span>
-              <span class="contact-number">01007076548</span>
-              <a href="tel:01007076548" class="call-btn">
+              <span class="contact-number" id="contact-1-number">01007076548</span>
+              <a href="tel:01007076548" class="call-btn" id="contact-1-link">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 Call Now
               </a>
             </div>
             <div class="contact-card">
               <span class="contact-label">Emergency Phone</span>
-              <span class="contact-number">01041436247</span>
-              <a href="tel:01041436247" class="call-btn">
+              <span class="contact-number" id="contact-2-number">01041436247</span>
+              <a href="tel:01041436247" class="call-btn" id="contact-2-link">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 Call Now
               </a>
@@ -737,21 +759,21 @@
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="9" x2="17" y2="9"/><line x1="7" y1="13" x2="13" y2="13"/></svg>
                 Card ID
               </span>
-              <span class="info-value mono">TAMER001</span>
+              <span class="info-value mono" id="ci-card-id">TAMER001</span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 Card Status
               </span>
-              <span class="info-value"><span class="status-inline"><span class="dot"></span> Active</span></span>
+              <span class="info-value"><span class="status-inline"><span class="dot"></span><span id="ci-status">Active</span></span></span>
             </li>
             <li class="info-row">
               <span class="info-label">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 National ID
               </span>
-              <span class="info-value mono">DEMO-NATIONAL-ID-001</span>
+              <span class="info-value mono" id="ci-national-id">DEMO-NATIONAL-ID-001</span>
             </li>
           </ul>
         </section>
@@ -769,7 +791,7 @@
               <div id="qrcode"></div>
             </div>
             <p class="qr-label">Scan to view this card online</p>
-            <span class="qr-url">https://tarektamer606-dev.github.io/H-CARD/card/TAMER001</span>
+            <span class="qr-url" id="qr-url">https://tarektamer606-dev.github.io/H-CARD/#/card/TAMER001</span>
             <p class="qr-note">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               <span>The QR code contains only the unique card URL — no personal or medical data is encoded.</span>
@@ -785,9 +807,30 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         H Card
       </div>
-      <div class="footer-meta">TAMER001 · Demo Card</div>
+      <div class="footer-meta" id="footer-meta">TAMER001 · Demo Card</div>
     </footer>
 
+  </article>
+
+  <!-- Unknown card ID state -->
+  <article class="card" id="not-found-card" hidden>
+    <div class="card-body">
+      <section class="panel" aria-labelledby="not-found-title">
+        <div class="panel-header">
+          <span class="panel-icon red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </span>
+          <h2 id="not-found-title">Card Not Found</h2>
+        </div>
+        <div class="demo-warning">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span>No card exists for ID <strong id="not-found-id"></strong>. Check the link, or open the demo card below.</span>
+        </div>
+        <p class="not-found-actions">
+          <a class="link-btn" href="#/card/TAMER001">View demo card TAMER001</a>
+        </p>
+      </section>
+    </div>
   </article>
 
   <p class="page-footnote">
@@ -798,14 +841,96 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new QRCode(document.getElementById('qrcode'), {
-      text: 'https://tarektamer606-dev.github.io/H-CARD/card/TAMER001',
+  // Fixed deployment base so the QR payload is identical on GitHub Pages and local previews.
+  var SITE_BASE = 'https://tarektamer606-dev.github.io/H-CARD/';
+  var DEFAULT_CARD_ID = 'TAMER001';
+
+  var CARDS = {
+    TAMER001: {
+      fullName: 'Tamer Tarek Hamad Mokhtar',
+      dateOfBirth: '15 / 06 / 2012',
+      gender: 'Male',
+      nationality: 'Egyptian',
+      location: 'Tanta, Gharbia, Egypt',
+      bloodType: 'O+',
+      allergies: 'Penicillin',
+      medicalNotes: 'No critical medical information',
+      emergencyContact: '01007076548',
+      emergencyPhone: '01041436247',
+      nationalId: 'DEMO-NATIONAL-ID-001',
+      status: 'Active'
+    }
+  };
+
+  function cardUrl(id) {
+    return SITE_BASE + '#/card/' + id;
+  }
+
+  function parseHashCardId() {
+    var match = location.hash.match(/^#\/card\/([^\/?#]+)\/?$/);
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+
+  function setText(id, value) {
+    document.getElementById(id).textContent = value;
+  }
+
+  function renderQR(url) {
+    var el = document.getElementById('qrcode');
+    el.innerHTML = '';
+    new QRCode(el, {
+      text: url,
       width: 140, height: 140,
       colorDark: '#1141a8', colorLight: '#ffffff',
       correctLevel: QRCode.CorrectLevel.H
     });
-  });
+  }
+
+  function render() {
+    var id = parseHashCardId() || DEFAULT_CARD_ID;
+    var card = CARDS[id];
+    var mainCard = document.getElementById('card-main');
+    var notFound = document.getElementById('not-found-card');
+
+    if (!card) {
+      mainCard.hidden = true;
+      notFound.hidden = false;
+      setText('not-found-id', id);
+      document.title = 'H Card — Card Not Found';
+      return;
+    }
+
+    mainCard.hidden = false;
+    notFound.hidden = true;
+
+    setText('full-name', card.fullName);
+    setText('header-card-id', id);
+    setText('header-status', card.status);
+    setText('pi-name', card.fullName);
+    setText('pi-dob', card.dateOfBirth);
+    setText('pi-gender', card.gender);
+    setText('pi-nationality', card.nationality);
+    setText('pi-location', card.location);
+    setText('blood-value', card.bloodType);
+    setText('allergy-value', card.allergies);
+    setText('notes-value', card.medicalNotes);
+    setText('contact-1-number', card.emergencyContact);
+    document.getElementById('contact-1-link').href = 'tel:' + card.emergencyContact;
+    setText('contact-2-number', card.emergencyPhone);
+    document.getElementById('contact-2-link').href = 'tel:' + card.emergencyPhone;
+    setText('ci-card-id', id);
+    setText('ci-status', card.status);
+    setText('ci-national-id', card.nationalId);
+    setText('footer-meta', id + ' · Demo Card');
+
+    var url = cardUrl(id);
+    setText('qr-url', url);
+    document.title = 'H Card — ' + id;
+    renderQR(url);
+  }
+
+  window.addEventListener('hashchange', render);
+  document.addEventListener('DOMContentLoaded', render);
 </script>
 </body>
 </html>
